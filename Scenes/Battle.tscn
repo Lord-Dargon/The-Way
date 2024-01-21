@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbwep0qj6sw6w"]
+
+[ext_resource type="Texture2D" uid="uid://c7vrifdgm18i2" path="res://Graphics/icon.svg" id="1_tlngn"]
+
+[node name="Battle" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(571, 540.5)
+scale = Vector2(11.25, 1.69531)
+texture = ExtResource("1_tlngn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(89, 433)
+texture = ExtResource("1_tlngn")
+metadata/_edit_group_ = true
+
+[node name="Character_Button" type="Button" parent="Sprite2D"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -65.0
+offset_top = -63.0
+offset_right = 65.0
+offset_bottom = 65.0
+
+[node name="Menu" type="Node" parent="Sprite2D/Character_Button"]
+
+[node name="Panel" type="Panel" parent="Sprite2D/Character_Button/Menu"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.333333)
+offset_left = 242.0
+offset_top = 187.0
+offset_right = 444.0
+offset_bottom = 327.0
+
+[node name="Button" type="Button" parent="Sprite2D/Character_Button/Menu/Panel"]
+offset_left = 22.0
+offset_top = 9.0
+offset_right = 189.0
+offset_bottom = 34.0
+text = "Attack 1
+"
+
+[node name="Button2" type="Button" parent="Sprite2D/Character_Button/Menu/Panel"]
+offset_left = 22.0
+offset_top = 54.0
+offset_right = 189.0
+offset_bottom = 85.0
+text = "Attack 2"
+
+[node name="Button3" type="Button" parent="Sprite2D/Character_Button/Menu/Panel"]
+offset_left = 21.0
+offset_top = 99.0
+offset_right = 188.0
+offset_bottom = 130.0
+text = "Attack 3
+"
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(1, 0.329412, 0.341176, 1)
+position = Vector2(763, 429)
+texture = ExtResource("1_tlngn")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(1, 0.329412, 0.341176, 1)
+position = Vector2(968, 443)
+texture = ExtResource("1_tlngn")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+modulate = Color(1, 0.329412, 0.341176, 1)
+position = Vector2(854, 505)
+texture = ExtResource("1_tlngn")
