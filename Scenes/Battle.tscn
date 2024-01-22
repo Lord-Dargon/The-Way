@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbwep0qj6sw6w"]
+[gd_scene load_steps=5 format=3 uid="uid://dbwep0qj6sw6w"]
 
 [ext_resource type="Texture2D" uid="uid://c7vrifdgm18i2" path="res://Graphics/icon.svg" id="1_tlngn"]
+[ext_resource type="PackedScene" uid="uid://diwhlddru52rs" path="res://Scenes/ActionManager.tscn" id="1_u6fa8"]
 [ext_resource type="Script" path="res://Scripts/Test_Player.gd" id="2_ps8u1"]
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="3_3281n"]
 
 [node name="Battle" type="Node2D"]
+
+[node name="Action Manager" parent="." instance=ExtResource("1_u6fa8")]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(571, 540.5)
@@ -17,6 +20,18 @@ texture = ExtResource("1_tlngn")
 script = ExtResource("2_ps8u1")
 Spd = 10
 metadata/_edit_group_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="Character"]
+anchors_preset = -1
+anchor_left = 0.044
+anchor_top = 0.049
+anchor_right = 0.044
+anchor_bottom = 0.049
+offset_left = -61.632
+offset_top = -209.272
+offset_right = 162.368
+offset_bottom = -182.272
+show_percentage = false
 
 [node name="Character_Button" type="Button" parent="Character"]
 modulate = Color(1, 1, 1, 0)

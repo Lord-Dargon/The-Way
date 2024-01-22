@@ -11,6 +11,7 @@ extends Node
 @onready var button = $Character_Button/Menu/Panel/Button
 @onready var menu = $Character_Button/Menu/Panel
 @onready var Action_bar = $Timer
+@onready var TimerBar = $ProgressBar
 
 
 
@@ -18,21 +19,24 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Action_bar.set_wait_time(100/Spd)
+	TimerBar.max_value = Action_bar.wait_time
 	Action_bar.start()
 	pass # Replace with function body.
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Update == true:
 		print(Action_bar.time_left)
+	TimerBar.value = Action_bar.wait_time - Action_bar.time_left
 	pass
 
 
 
 func _on_attack_1_pressed():
+	ActionManager.Attack1.call()
 	if Action_bar.is_stopped():
 		print("Attack_1")
 		Action_bar.start()
-		pass #
+
 
 func _on_attack_2_pressed():
 	if Action_bar.is_stopped():
