@@ -15,22 +15,23 @@ scale = Vector2(11.25, 1.69531)
 texture = ExtResource("1_tlngn")
 
 [node name="Character" type="Sprite2D" parent="."]
-position = Vector2(79, 412)
+position = Vector2(120, 417)
 texture = ExtResource("1_tlngn")
 script = ExtResource("2_ps8u1")
 Spd = 10
 metadata/_edit_group_ = true
 
-[node name="ProgressBar" type="ProgressBar" parent="Character"]
+[node name="TimerBar" type="ProgressBar" parent="Character"]
 anchors_preset = -1
 anchor_left = 0.044
 anchor_top = 0.049
 anchor_right = 0.044
 anchor_bottom = 0.049
-offset_left = -61.632
-offset_top = -209.272
-offset_right = 162.368
-offset_bottom = -182.272
+offset_left = -106.632
+offset_top = -98.272
+offset_right = 117.368
+offset_bottom = -71.272
+scale = Vector2(0.992835, 0.48)
 show_percentage = false
 
 [node name="Character_Button" type="Button" parent="Character"]
@@ -46,10 +47,10 @@ toggle_mode = true
 [node name="Panel" type="Panel" parent="Character/Character_Button/Menu"]
 visible = false
 self_modulate = Color(1, 1, 1, 0.333333)
-offset_left = 242.0
-offset_top = 187.0
-offset_right = 444.0
-offset_bottom = 327.0
+offset_left = 94.0
+offset_top = 191.0
+offset_right = 296.0
+offset_bottom = 331.0
 
 [node name="Attack_1" type="Button" parent="Character/Character_Button/Menu/Panel"]
 layout_mode = 0
@@ -80,64 +81,192 @@ text = "Attack 3
 [node name="Timer" type="Timer" parent="Character"]
 one_shot = true
 
-[node name="Enemy" type="Sprite2D" parent="."]
-modulate = Color(1, 0.329412, 0.341176, 1)
-position = Vector2(763, 429)
+[node name="Enemy_Slot_1" type="Node2D" parent="."]
+position = Vector2(818, 396)
+
+[node name="Enemy" type="Sprite2D" parent="Enemy_Slot_1"]
+self_modulate = Color(1, 0.0901961, 0.0901961, 1)
 texture = ExtResource("1_tlngn")
 script = ExtResource("3_3281n")
 Name = "Shmorgashnap Nettleborp"
 Spd = 50
+metadata/_edit_group_ = true
 
-[node name="Enemy_Button2" type="Button" parent="Enemy"]
+[node name="TimerBar" type="ProgressBar" parent="Enemy_Slot_1/Enemy"]
+anchors_preset = -1
+anchor_left = 0.044
+anchor_top = 0.049
+anchor_right = 0.044
+anchor_bottom = 0.049
+offset_left = -111.632
+offset_top = -94.272
+offset_right = 112.368
+offset_bottom = -67.272
+scale = Vector2(0.992835, 0.48)
+show_percentage = false
+
+[node name="Enemy_Button2" type="Button" parent="Enemy_Slot_1/Enemy"]
 modulate = Color(1, 1, 1, 0)
 offset_left = -62.0
 offset_top = -67.0
 offset_right = 63.0
 offset_bottom = 63.0
 
-[node name="Timer" type="Timer" parent="Enemy"]
+[node name="Timer" type="Timer" parent="Enemy_Slot_1/Enemy"]
 one_shot = true
 
-[node name="Enemy2" type="Sprite2D" parent="."]
-modulate = Color(1, 0.329412, 0.341176, 1)
-position = Vector2(815, 572)
+[node name="ColorRect" type="ColorRect" parent="Enemy_Slot_1/Enemy"]
+visible = false
+modulate = Color(1, 0, 0, 1)
+show_behind_parent = true
+offset_left = -71.0
+offset_top = -73.0
+offset_right = -31.0
+offset_bottom = -33.0
+scale = Vector2(3.60225, 3.60225)
+
+[node name="Enemy_Slot_2" type="Node2D" parent="."]
+position = Vector2(1018, 423)
+
+[node name="Enemy" type="Sprite2D" parent="Enemy_Slot_2"]
+self_modulate = Color(1, 0.0901961, 0.0901961, 1)
 texture = ExtResource("1_tlngn")
 script = ExtResource("3_3281n")
-Name = "Jerry"
-Spd = 10
+Name = "Shmorgashnap Nettleborp"
+Spd = 50
+metadata/_edit_group_ = true
 
-[node name="Enemy_Button" type="Button" parent="Enemy2"]
+[node name="TimerBar" type="ProgressBar" parent="Enemy_Slot_2/Enemy"]
+anchors_preset = -1
+anchor_left = 0.044
+anchor_top = 0.049
+anchor_right = 0.044
+anchor_bottom = 0.049
+offset_left = -111.632
+offset_top = -94.272
+offset_right = 112.368
+offset_bottom = -67.272
+scale = Vector2(0.992835, 0.48)
+show_percentage = false
+
+[node name="Enemy_Button2" type="Button" parent="Enemy_Slot_2/Enemy"]
 modulate = Color(1, 1, 1, 0)
-offset_left = -63.0
-offset_top = -65.0
-offset_right = 62.0
-offset_bottom = 65.0
+offset_left = -62.0
+offset_top = -67.0
+offset_right = 63.0
+offset_bottom = 63.0
 
-[node name="Timer" type="Timer" parent="Enemy2"]
+[node name="Timer" type="Timer" parent="Enemy_Slot_2/Enemy"]
 one_shot = true
 
-[node name="Enemy3" type="Sprite2D" parent="."]
-modulate = Color(1, 0.329412, 0.341176, 1)
-position = Vector2(1015, 483)
+[node name="ColorRect" type="ColorRect" parent="Enemy_Slot_2/Enemy"]
+visible = false
+modulate = Color(1, 0, 0, 1)
+show_behind_parent = true
+offset_left = -71.0
+offset_top = -73.0
+offset_right = -31.0
+offset_bottom = -33.0
+scale = Vector2(3.60225, 3.60225)
+
+[node name="Enemy_Slot_3" type="Node2D" parent="."]
+position = Vector2(733, 514)
+
+[node name="Enemy" type="Sprite2D" parent="Enemy_Slot_3"]
+self_modulate = Color(1, 0.0901961, 0.0901961, 1)
 texture = ExtResource("1_tlngn")
 script = ExtResource("3_3281n")
-Name = "Vourge"
+Name = "Shmorgashnap Nettleborp"
+Spd = 50
+metadata/_edit_group_ = true
 
-[node name="Enemy_Button3" type="Button" parent="Enemy3"]
+[node name="TimerBar" type="ProgressBar" parent="Enemy_Slot_3/Enemy"]
+anchors_preset = -1
+anchor_left = 0.044
+anchor_top = 0.049
+anchor_right = 0.044
+anchor_bottom = 0.049
+offset_left = -111.632
+offset_top = -94.272
+offset_right = 112.368
+offset_bottom = -67.272
+scale = Vector2(0.992835, 0.48)
+show_percentage = false
+
+[node name="Enemy_Button2" type="Button" parent="Enemy_Slot_3/Enemy"]
 modulate = Color(1, 1, 1, 0)
-offset_left = -63.0
-offset_top = -63.0
-offset_right = 62.0
-offset_bottom = 67.0
+offset_left = -62.0
+offset_top = -67.0
+offset_right = 63.0
+offset_bottom = 63.0
 
-[node name="Timer" type="Timer" parent="Enemy3"]
+[node name="Timer" type="Timer" parent="Enemy_Slot_3/Enemy"]
 one_shot = true
+
+[node name="ColorRect" type="ColorRect" parent="Enemy_Slot_3/Enemy"]
+visible = false
+modulate = Color(1, 0, 0, 1)
+show_behind_parent = true
+offset_left = -71.0
+offset_top = -73.0
+offset_right = -31.0
+offset_bottom = -33.0
+scale = Vector2(3.60225, 3.60225)
+
+[node name="Enemy_Slot_4" type="Node2D" parent="."]
+position = Vector2(968, 554)
+
+[node name="Enemy" type="Sprite2D" parent="Enemy_Slot_4"]
+self_modulate = Color(1, 0.0901961, 0.0901961, 1)
+texture = ExtResource("1_tlngn")
+script = ExtResource("3_3281n")
+Name = "Shmorgashnap Nettleborp"
+Spd = 50
+metadata/_edit_group_ = true
+
+[node name="TimerBar" type="ProgressBar" parent="Enemy_Slot_4/Enemy"]
+anchors_preset = -1
+anchor_left = 0.044
+anchor_top = 0.049
+anchor_right = 0.044
+anchor_bottom = 0.049
+offset_left = -111.632
+offset_top = -94.272
+offset_right = 112.368
+offset_bottom = -67.272
+scale = Vector2(0.992835, 0.48)
+show_percentage = false
+
+[node name="Enemy_Button2" type="Button" parent="Enemy_Slot_4/Enemy"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -62.0
+offset_top = -67.0
+offset_right = 63.0
+offset_bottom = 63.0
+
+[node name="Timer" type="Timer" parent="Enemy_Slot_4/Enemy"]
+one_shot = true
+
+[node name="ColorRect" type="ColorRect" parent="Enemy_Slot_4/Enemy"]
+visible = false
+modulate = Color(1, 0, 0, 1)
+show_behind_parent = true
+offset_left = -71.0
+offset_top = -73.0
+offset_right = -31.0
+offset_bottom = -33.0
+scale = Vector2(3.60225, 3.60225)
 
 [connection signal="pressed" from="Character/Character_Button" to="Character" method="_on_character_button_pressed"]
 [connection signal="toggled" from="Character/Character_Button" to="Character" method="_on_character_button_toggled"]
 [connection signal="pressed" from="Character/Character_Button/Menu/Panel/Attack_1" to="Character" method="_on_attack_1_pressed"]
 [connection signal="pressed" from="Character/Character_Button/Menu/Panel/Attack_2" to="Character" method="_on_attack_2_pressed"]
 [connection signal="pressed" from="Character/Character_Button/Menu/Panel/Attack_3" to="Character" method="_on_attack_3_pressed"]
-[connection signal="timeout" from="Enemy/Timer" to="Enemy" method="_on_timer_timeout"]
-[connection signal="timeout" from="Enemy2/Timer" to="Enemy2" method="_on_timer_timeout"]
-[connection signal="timeout" from="Enemy3/Timer" to="Enemy3" method="_on_timer_timeout"]
+[connection signal="pressed" from="Enemy_Slot_1/Enemy/Enemy_Button2" to="Enemy_Slot_1/Enemy" method="_on_enemy_button_2_pressed"]
+[connection signal="timeout" from="Enemy_Slot_1/Enemy/Timer" to="Enemy_Slot_1/Enemy" method="_on_timer_timeout"]
+[connection signal="pressed" from="Enemy_Slot_2/Enemy/Enemy_Button2" to="Enemy_Slot_2/Enemy" method="_on_enemy_button_2_pressed"]
+[connection signal="timeout" from="Enemy_Slot_2/Enemy/Timer" to="Enemy_Slot_2/Enemy" method="_on_timer_timeout"]
+[connection signal="pressed" from="Enemy_Slot_3/Enemy/Enemy_Button2" to="Enemy_Slot_3/Enemy" method="_on_enemy_button_2_pressed"]
+[connection signal="timeout" from="Enemy_Slot_3/Enemy/Timer" to="Enemy_Slot_3/Enemy" method="_on_timer_timeout"]
+[connection signal="pressed" from="Enemy_Slot_4/Enemy/Enemy_Button2" to="Enemy_Slot_4/Enemy" method="_on_enemy_button_2_pressed"]
+[connection signal="timeout" from="Enemy_Slot_4/Enemy/Timer" to="Enemy_Slot_4/Enemy" method="_on_timer_timeout"]

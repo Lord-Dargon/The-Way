@@ -1,5 +1,8 @@
 extends Node
 
+var Player_Selected: Node
+var Enemy_Selected: Node
+
 @onready var Actions : Array = []
 
 
@@ -9,9 +12,6 @@ func _ready():
 	var Action = Callable(self, "Attack1")
 
 func Attack1():
-
-		pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	print("This definatly worked")
+	if Enemy_Selected:
+		Enemy_Selected.HP -= 50

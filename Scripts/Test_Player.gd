@@ -11,7 +11,7 @@ extends Node
 @onready var button = $Character_Button/Menu/Panel/Button
 @onready var menu = $Character_Button/Menu/Panel
 @onready var Action_bar = $Timer
-@onready var TimerBar = $ProgressBar
+@onready var TimerBar = $TimerBar
 
 
 
@@ -32,10 +32,14 @@ func _process(delta):
 
 
 func _on_attack_1_pressed():
-	ActionManager.Attack1.call()
+	
 	if Action_bar.is_stopped():
-		print("Attack_1")
-		Action_bar.start()
+		if ActionManager.Enemy_Selected:
+			print("Attack_1")
+			ActionManager.Attack1.call()
+			Action_bar.start()
+		else:
+			print("Pick An Enemy")
 
 
 func _on_attack_2_pressed():
