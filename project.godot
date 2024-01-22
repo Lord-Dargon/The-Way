@@ -14,3 +14,7 @@ config/name="The-way"
 run/main_scene="res://Scenes/Battle.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Graphics/icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"

@@ -5,6 +5,7 @@ extends Node
 @export var Def: int = 100
 @export var Atk: int = 100
 @export var Spd: int = 100
+@export var Update: bool
 
 @onready var character_button = $Character_Button
 @onready var button = $Character_Button/Menu/Panel/Button
@@ -21,7 +22,8 @@ func _ready():
 	pass # Replace with function body.
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(Action_bar.time_left)
+	if Update == true:
+		print(Action_bar.time_left)
 	pass
 
 

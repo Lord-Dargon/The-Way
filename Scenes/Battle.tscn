@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbwep0qj6sw6w"]
+[gd_scene load_steps=4 format=3 uid="uid://dbwep0qj6sw6w"]
 
 [ext_resource type="Texture2D" uid="uid://c7vrifdgm18i2" path="res://Graphics/icon.svg" id="1_tlngn"]
 [ext_resource type="Script" path="res://Scripts/Test_Player.gd" id="2_ps8u1"]
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="3_3281n"]
 
 [node name="Battle" type="Node2D"]
 
@@ -64,23 +65,64 @@ text = "Attack 3
 [node name="Timer" type="Timer" parent="Character"]
 one_shot = true
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Enemy" type="Sprite2D" parent="."]
 modulate = Color(1, 0.329412, 0.341176, 1)
 position = Vector2(763, 429)
 texture = ExtResource("1_tlngn")
+script = ExtResource("3_3281n")
+Name = "Shmorgashnap Nettleborp"
+Spd = 50
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-modulate = Color(1, 0.329412, 0.341176, 1)
-position = Vector2(968, 443)
-texture = ExtResource("1_tlngn")
+[node name="Enemy_Button2" type="Button" parent="Enemy"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -62.0
+offset_top = -67.0
+offset_right = 63.0
+offset_bottom = 63.0
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
+[node name="Timer" type="Timer" parent="Enemy"]
+one_shot = true
+
+[node name="Enemy2" type="Sprite2D" parent="."]
 modulate = Color(1, 0.329412, 0.341176, 1)
-position = Vector2(854, 505)
+position = Vector2(815, 572)
 texture = ExtResource("1_tlngn")
+script = ExtResource("3_3281n")
+Name = "Jerry"
+Spd = 10
+
+[node name="Enemy_Button" type="Button" parent="Enemy2"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -63.0
+offset_top = -65.0
+offset_right = 62.0
+offset_bottom = 65.0
+
+[node name="Timer" type="Timer" parent="Enemy2"]
+one_shot = true
+
+[node name="Enemy3" type="Sprite2D" parent="."]
+modulate = Color(1, 0.329412, 0.341176, 1)
+position = Vector2(1015, 483)
+texture = ExtResource("1_tlngn")
+script = ExtResource("3_3281n")
+Name = "Vourge"
+
+[node name="Enemy_Button3" type="Button" parent="Enemy3"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -63.0
+offset_top = -63.0
+offset_right = 62.0
+offset_bottom = 67.0
+
+[node name="Timer" type="Timer" parent="Enemy3"]
+one_shot = true
 
 [connection signal="pressed" from="Character/Character_Button" to="Character" method="_on_character_button_pressed"]
 [connection signal="toggled" from="Character/Character_Button" to="Character" method="_on_character_button_toggled"]
 [connection signal="pressed" from="Character/Character_Button/Menu/Panel/Attack_1" to="Character" method="_on_attack_1_pressed"]
 [connection signal="pressed" from="Character/Character_Button/Menu/Panel/Attack_2" to="Character" method="_on_attack_2_pressed"]
 [connection signal="pressed" from="Character/Character_Button/Menu/Panel/Attack_3" to="Character" method="_on_attack_3_pressed"]
+[connection signal="timeout" from="Enemy/Timer" to="Enemy" method="_on_timer_timeout"]
+[connection signal="timeout" from="Enemy2/Timer" to="Enemy2" method="_on_timer_timeout"]
+[connection signal="timeout" from="Enemy3/Timer" to="Enemy3" method="_on_timer_timeout"]
