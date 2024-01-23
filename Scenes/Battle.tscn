@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbwep0qj6sw6w"]
+[gd_scene load_steps=7 format=3 uid="uid://dbwep0qj6sw6w"]
 
+[ext_resource type="Script" path="res://Scripts/UI Manager.gd" id="1_mvw1i"]
 [ext_resource type="Texture2D" uid="uid://c7vrifdgm18i2" path="res://Graphics/icon.svg" id="1_tlngn"]
 [ext_resource type="PackedScene" uid="uid://diwhlddru52rs" path="res://Scenes/ActionManager.tscn" id="1_u6fa8"]
 [ext_resource type="Script" path="res://Scripts/Test_Player.gd" id="2_ps8u1"]
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="3_3281n"]
+[ext_resource type="Texture2D" uid="uid://dblp4561llpuh" path="res://Graphics/myohmy.jpeg" id="5_wjh16"]
 
 [node name="Battle" type="Node2D"]
+
+[node name="UI Manager" type="Node" parent="."]
+script = ExtResource("1_mvw1i")
+
+[node name="Timer" type="Timer" parent="UI Manager"]
 
 [node name="Action Manager" parent="." instance=ExtResource("1_u6fa8")]
 
@@ -18,7 +25,6 @@ texture = ExtResource("1_tlngn")
 position = Vector2(120, 417)
 texture = ExtResource("1_tlngn")
 script = ExtResource("2_ps8u1")
-Spd = 10
 metadata/_edit_group_ = true
 
 [node name="TimerBar" type="ProgressBar" parent="Character"]
@@ -115,7 +121,7 @@ offset_bottom = 63.0
 [node name="Timer" type="Timer" parent="Enemy_Slot_1/Enemy"]
 one_shot = true
 
-[node name="ColorRect" type="ColorRect" parent="Enemy_Slot_1/Enemy"]
+[node name="Reticle" type="ColorRect" parent="Enemy_Slot_1/Enemy"]
 visible = false
 modulate = Color(1, 0, 0, 1)
 show_behind_parent = true
@@ -124,6 +130,15 @@ offset_top = -73.0
 offset_right = -31.0
 offset_bottom = -33.0
 scale = Vector2(3.60225, 3.60225)
+
+[node name="Crosshair" type="TextureRect" parent="Enemy_Slot_1/Enemy"]
+visible = false
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("5_wjh16")
+expand_mode = 1
 
 [node name="Enemy_Slot_2" type="Node2D" parent="."]
 position = Vector2(1018, 423)
@@ -159,7 +174,7 @@ offset_bottom = 63.0
 [node name="Timer" type="Timer" parent="Enemy_Slot_2/Enemy"]
 one_shot = true
 
-[node name="ColorRect" type="ColorRect" parent="Enemy_Slot_2/Enemy"]
+[node name="Reticle" type="ColorRect" parent="Enemy_Slot_2/Enemy"]
 visible = false
 modulate = Color(1, 0, 0, 1)
 show_behind_parent = true
@@ -168,6 +183,15 @@ offset_top = -73.0
 offset_right = -31.0
 offset_bottom = -33.0
 scale = Vector2(3.60225, 3.60225)
+
+[node name="Crosshair" type="TextureRect" parent="Enemy_Slot_2/Enemy"]
+visible = false
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("5_wjh16")
+expand_mode = 1
 
 [node name="Enemy_Slot_3" type="Node2D" parent="."]
 position = Vector2(733, 514)
@@ -203,7 +227,7 @@ offset_bottom = 63.0
 [node name="Timer" type="Timer" parent="Enemy_Slot_3/Enemy"]
 one_shot = true
 
-[node name="ColorRect" type="ColorRect" parent="Enemy_Slot_3/Enemy"]
+[node name="Reticle" type="ColorRect" parent="Enemy_Slot_3/Enemy"]
 visible = false
 modulate = Color(1, 0, 0, 1)
 show_behind_parent = true
@@ -212,6 +236,15 @@ offset_top = -73.0
 offset_right = -31.0
 offset_bottom = -33.0
 scale = Vector2(3.60225, 3.60225)
+
+[node name="Crosshair" type="TextureRect" parent="Enemy_Slot_3/Enemy"]
+visible = false
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("5_wjh16")
+expand_mode = 1
 
 [node name="Enemy_Slot_4" type="Node2D" parent="."]
 position = Vector2(968, 554)
@@ -247,7 +280,7 @@ offset_bottom = 63.0
 [node name="Timer" type="Timer" parent="Enemy_Slot_4/Enemy"]
 one_shot = true
 
-[node name="ColorRect" type="ColorRect" parent="Enemy_Slot_4/Enemy"]
+[node name="Reticle" type="ColorRect" parent="Enemy_Slot_4/Enemy"]
 visible = false
 modulate = Color(1, 0, 0, 1)
 show_behind_parent = true
@@ -257,6 +290,17 @@ offset_right = -31.0
 offset_bottom = -33.0
 scale = Vector2(3.60225, 3.60225)
 
+[node name="Crosshair" type="TextureRect" parent="Enemy_Slot_4/Enemy"]
+visible = false
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("5_wjh16")
+expand_mode = 1
+
+[connection signal="timeout" from="UI Manager/Timer" to="UI Manager" method="_on_timer_timeout"]
+[connection signal="CrosshairFlash" from="Character" to="UI Manager" method="_on_character_crosshair_flash"]
 [connection signal="pressed" from="Character/Character_Button" to="Character" method="_on_character_button_pressed"]
 [connection signal="toggled" from="Character/Character_Button" to="Character" method="_on_character_button_toggled"]
 [connection signal="pressed" from="Character/Character_Button/Menu/Panel/Attack_1" to="Character" method="_on_attack_1_pressed"]

@@ -10,7 +10,9 @@ extends Node
 
 @onready var Action_bar = $Timer
 @onready var TimerBar = $TimerBar
-@onready var Reticle = $ColorRect
+@onready var Reticle = $Reticle
+@onready var Crosshair = $Crosshair
+
 
 
 
@@ -31,6 +33,7 @@ func _process(delta):
 		 
 	if  ActionManager.Enemy_Selected == self:
 		Reticle.show()
+		
 	else:
 		Reticle.hide()
 		
@@ -43,6 +46,8 @@ func _on_timer_timeout():
 	pass # Replace with function body.
 
 
+
 func _on_enemy_button_2_pressed():
 	ActionManager.Enemy_Selected = self
 	pass # Replace with function body.
+

@@ -13,6 +13,8 @@ extends Node
 @onready var Action_bar = $Timer
 @onready var TimerBar = $TimerBar
 
+signal CrosshairFlash 
+
 
 
 
@@ -40,19 +42,28 @@ func _on_attack_1_pressed():
 			Action_bar.start()
 		else:
 			print("Pick An Enemy")
+			CrosshairFlash.emit()
 
 
 func _on_attack_2_pressed():
 	if Action_bar.is_stopped():
-		print("Attack_2")
-		Action_bar.start()
-	pass
+		if ActionManager.Enemy_Selected:
+			print("Attack_2")
+			ActionManager.Attack2.call()
+			Action_bar.start()
+		else:
+			print("Pick An Enemy")
+			CrosshairFlash.emit()
 	
 func _on_attack_3_pressed():
 	if Action_bar.is_stopped():
-		print("Attack_3")
-		Action_bar.start()
-		pass # Replace with function body.
+		if ActionManager.Enemy_Selected:
+			print("Attack_3")
+			ActionManager.Attack3.call()
+			Action_bar.start()
+		else:
+			print("Pick An Enemy")
+			CrosshairFlash.emit()
 
 
 
