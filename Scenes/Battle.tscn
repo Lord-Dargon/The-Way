@@ -131,7 +131,7 @@ offset_right = -31.0
 offset_bottom = -33.0
 scale = Vector2(3.60225, 3.60225)
 
-[node name="Crosshair" type="TextureRect" parent="Enemy_Slot_1/Enemy"]
+[node name="Crosshair" type="TextureRect" parent="Enemy_Slot_1"]
 visible = false
 offset_left = -64.0
 offset_top = -64.0
@@ -184,7 +184,7 @@ offset_right = -31.0
 offset_bottom = -33.0
 scale = Vector2(3.60225, 3.60225)
 
-[node name="Crosshair" type="TextureRect" parent="Enemy_Slot_2/Enemy"]
+[node name="Crosshair" type="TextureRect" parent="Enemy_Slot_2"]
 visible = false
 offset_left = -64.0
 offset_top = -64.0
@@ -237,7 +237,7 @@ offset_right = -31.0
 offset_bottom = -33.0
 scale = Vector2(3.60225, 3.60225)
 
-[node name="Crosshair" type="TextureRect" parent="Enemy_Slot_3/Enemy"]
+[node name="Crosshair" type="TextureRect" parent="Enemy_Slot_3"]
 visible = false
 offset_left = -64.0
 offset_top = -64.0
@@ -290,7 +290,7 @@ offset_right = -31.0
 offset_bottom = -33.0
 scale = Vector2(3.60225, 3.60225)
 
-[node name="Crosshair" type="TextureRect" parent="Enemy_Slot_4/Enemy"]
+[node name="Crosshair" type="TextureRect" parent="Enemy_Slot_4"]
 visible = false
 offset_left = -64.0
 offset_top = -64.0

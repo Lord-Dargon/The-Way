@@ -1,9 +1,9 @@
 extends Node
 
-@onready var Crosshair1 = $"../Enemy_Slot_1/Enemy/Crosshair"
-@onready var Crosshair2 = $"../Enemy_Slot_2/Enemy/Crosshair"
-@onready var Crosshair3 = $"../Enemy_Slot_3/Enemy/Crosshair"
-@onready var Crosshair4 = $"../Enemy_Slot_4/Enemy/Crosshair"
+@onready var Crosshair1 = $"../Enemy_Slot_1/Crosshair"
+@onready var Crosshair2 = $"../Enemy_Slot_2/Crosshair"
+@onready var Crosshair3 = $"../Enemy_Slot_3/Crosshair"
+@onready var Crosshair4 = $"../Enemy_Slot_4/Crosshair"
 @onready var Crosshairs : Array = [Crosshair1, Crosshair2, Crosshair3, Crosshair4]
 @onready var CrosshairTimer = $Timer
 
