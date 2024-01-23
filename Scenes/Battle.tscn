@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbwep0qj6sw6w"]
+[gd_scene load_steps=8 format=3 uid="uid://dbwep0qj6sw6w"]
 
 [ext_resource type="Script" path="res://Scripts/UI Manager.gd" id="1_mvw1i"]
 [ext_resource type="Texture2D" uid="uid://c7vrifdgm18i2" path="res://Graphics/icon.svg" id="1_tlngn"]
@@ -7,6 +7,18 @@
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="3_3281n"]
 [ext_resource type="Texture2D" uid="uid://dblp4561llpuh" path="res://Graphics/myohmy.jpeg" id="5_wjh16"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5ch2"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+bg_color = Color(0, 0, 0.0666667, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 8.0
+expand_margin_top = 5.0
+
 [node name="Battle" type="Node2D"]
 
 [node name="UI Manager" type="Node" parent="."]
@@ -14,15 +26,35 @@ script = ExtResource("1_mvw1i")
 
 [node name="Timer" type="Timer" parent="UI Manager"]
 
+[node name="MarginContainer" type="MarginContainer" parent="UI Manager"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 533.0
+offset_top = -108.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="UI Manager/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e5ch2")
+
+[node name="Battle Log" type="Label" parent="UI Manager/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Battle Log"
+autowrap_mode = 1
+
 [node name="Action Manager" parent="." instance=ExtResource("1_u6fa8")]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(571, 540.5)
+position = Vector2(569, 318.5)
 scale = Vector2(11.25, 1.69531)
 texture = ExtResource("1_tlngn")
 
 [node name="Character" type="Sprite2D" parent="."]
-position = Vector2(120, 417)
+position = Vector2(118, 195)
 texture = ExtResource("1_tlngn")
 script = ExtResource("2_ps8u1")
 metadata/_edit_group_ = true
@@ -88,7 +120,7 @@ text = "Attack 3
 one_shot = true
 
 [node name="Enemy_Slot_1" type="Node2D" parent="."]
-position = Vector2(818, 396)
+position = Vector2(816, 174)
 
 [node name="Enemy" type="Sprite2D" parent="Enemy_Slot_1"]
 self_modulate = Color(1, 0.0901961, 0.0901961, 1)
@@ -141,7 +173,7 @@ texture = ExtResource("5_wjh16")
 expand_mode = 1
 
 [node name="Enemy_Slot_2" type="Node2D" parent="."]
-position = Vector2(1018, 423)
+position = Vector2(1016, 201)
 
 [node name="Enemy" type="Sprite2D" parent="Enemy_Slot_2"]
 self_modulate = Color(1, 0.0901961, 0.0901961, 1)
@@ -194,7 +226,7 @@ texture = ExtResource("5_wjh16")
 expand_mode = 1
 
 [node name="Enemy_Slot_3" type="Node2D" parent="."]
-position = Vector2(733, 514)
+position = Vector2(731, 292)
 
 [node name="Enemy" type="Sprite2D" parent="Enemy_Slot_3"]
 self_modulate = Color(1, 0.0901961, 0.0901961, 1)
@@ -247,7 +279,7 @@ texture = ExtResource("5_wjh16")
 expand_mode = 1
 
 [node name="Enemy_Slot_4" type="Node2D" parent="."]
-position = Vector2(968, 554)
+position = Vector2(966, 332)
 
 [node name="Enemy" type="Sprite2D" parent="Enemy_Slot_4"]
 self_modulate = Color(1, 0.0901961, 0.0901961, 1)
