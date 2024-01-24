@@ -206,6 +206,7 @@ offset_right = 63.0
 offset_bottom = 63.0
 
 [node name="Timer" type="Timer" parent="Enemy_Slot_2/Enemy"]
+wait_time = 0.5
 one_shot = true
 
 [node name="Reticle" type="ColorRect" parent="Enemy_Slot_2/Enemy"]
@@ -259,6 +260,7 @@ offset_right = 63.0
 offset_bottom = 63.0
 
 [node name="Timer" type="Timer" parent="Enemy_Slot_3/Enemy"]
+wait_time = 2.0
 one_shot = true
 
 [node name="Reticle" type="ColorRect" parent="Enemy_Slot_3/Enemy"]
@@ -312,6 +314,7 @@ offset_right = 63.0
 offset_bottom = 63.0
 
 [node name="Timer" type="Timer" parent="Enemy_Slot_4/Enemy"]
+wait_time = 1.5
 one_shot = true
 
 [node name="Reticle" type="ColorRect" parent="Enemy_Slot_4/Enemy"]
