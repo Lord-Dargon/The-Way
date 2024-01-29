@@ -18,6 +18,7 @@ config/icon="res://Graphics/icon.svg"
 [autoload]
 
 ActionManager="*res://Scenes/ActionManager.tscn"
+UiManager="*res://Scenes/ui_manager.tscn"
 
 [display]
 

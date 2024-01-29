@@ -6,15 +6,18 @@ extends Node
 @onready var Crosshair4 = $"../Enemy_Slot_4/Crosshair"
 @onready var Crosshairs : Array = [Crosshair1, Crosshair2, Crosshair3, Crosshair4]
 @onready var CrosshairTimer = $Timer
+@onready var battle_log = $"MarginContainer/Battle Log"
+var messege: String
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	pass
+
+
+func Battle_Log_Update(messege):
+	battle_log.text = messege
 	pass
 
 

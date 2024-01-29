@@ -41,7 +41,9 @@ func _process(delta):
 	pass
 
 func _on_timer_timeout():
-	print(Name + " ATTACKS")
+	UiManager.Battle_Log_Update(Name + " ATTACKS")
+	Action_bar.set_wait_time(200/Spd)
+	TimerBar.max_value = Action_bar.wait_time
 	Action_bar.start()
 	pass # Replace with function body.
 

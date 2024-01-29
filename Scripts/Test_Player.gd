@@ -13,6 +13,11 @@ extends Node
 @onready var Action_bar = $Timer
 @onready var TimerBar = $TimerBar
 
+@export_category("Attacks")
+@export var Attack1_Name = ""
+@export var Attack2_Name = ""
+@export var Attack3_Name = ""
+
 signal CrosshairFlash 
 
 
@@ -23,11 +28,14 @@ func _ready():
 	Action_bar.set_wait_time(100/Spd)
 	TimerBar.max_value = Action_bar.wait_time
 	Action_bar.start()
+	
+	
+	
 	pass # Replace with function body.
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Update == true:
-		print(Action_bar.time_left)
+		UiManager.Battle_Log_Update(Action_bar.time_left)
 	TimerBar.value = Action_bar.wait_time - Action_bar.time_left
 	pass
 
@@ -37,32 +45,31 @@ func _on_attack_1_pressed():
 	
 	if Action_bar.is_stopped():
 		if ActionManager.Enemy_Selected:
-			print("Attack_1")
-			ActionManager.Attack1.call()
+			ActionManager.call(Attack1_Name)
+			UiManager.Battle_Log_Update("Punched")
 			Action_bar.start()
 		else:
-			print("Pick An Enemy")
+			UiManager.Battle_Log_Update("Pick An Enemy")
 			CrosshairFlash.emit()
-
 
 func _on_attack_2_pressed():
 	if Action_bar.is_stopped():
 		if ActionManager.Enemy_Selected:
-			print("Attack_2")
-			ActionManager.Attack2.call()
+			UiManager.Battle_Log_Update("Attack_2")
+			ActionManager.call(Attack2_Name)
 			Action_bar.start()
 		else:
-			print("Pick An Enemy")
+			UiManager.Battle_Log_Update("Pick An Enemy")
 			CrosshairFlash.emit()
-	
+
 func _on_attack_3_pressed():
 	if Action_bar.is_stopped():
 		if ActionManager.Enemy_Selected:
-			print("Attack_3")
-			ActionManager.Attack3.call()
+			UiManager.Battle_Log_Update("Attack_3")
+			ActionManager.call(Attack3_Name)
 			Action_bar.start()
 		else:
-			print("Pick An Enemy")
+			UiManager.Battle_Log_Update("Pick An Enemy")
 			CrosshairFlash.emit()
 
 

@@ -4,14 +4,16 @@ var Player_Selected: Node
 var Enemy_Selected: Node
 
 @onready var Actions : Array = []
-
-
+var callable
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var Action = Callable(self, "Attack1")
+	pass
 
-func Attack1():
+
+#List of all attacks
+
+func Strike():
 	print("1 This definatly worked")
 	if Enemy_Selected:
 		Enemy_Selected.HP -= 50
@@ -19,12 +21,13 @@ func Attack1():
 		if Enemy_Selected.HP <= 0:
 			Enemy_Selected = null
 
-func Attack2():
+func Knee_Punch():
 	print("2 This definatly worked")
 	if Enemy_Selected:
-		Enemy_Selected.HP -= 50
+		if  Enemy_Selected.Spd > 1:
+			Enemy_Selected.Spd -= 10
+			if  Enemy_Selected.Spd < 1:
+				Enemy_Selected.Spd = 1
 
 func Attack3():
-	print("3 This definatly worked")
-	if Enemy_Selected:
-		Enemy_Selected.HP -= 50
+	pass
