@@ -6,10 +6,12 @@ extends Node
 @onready var Crosshair4 = $"../Enemy_Slot_4/Crosshair"
 @onready var Crosshairs : Array = [Crosshair1, Crosshair2, Crosshair3, Crosshair4]
 @onready var CrosshairTimer = $Timer
-@onready var battle_log = $"MarginContainer/Battle Log"
+@onready var container = $Container
+@onready var battle_log = $"Container/Battle Log"
 var messege: String
 
-
+func _ready():
+	battle_log.text
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -17,7 +19,10 @@ func _process(delta):
 
 
 func Battle_Log_Update(messege):
-	battle_log.text = messege
+	#if battle_log.get_visible_line_count() < 4:
+	battle_log.text = battle_log.text + "\n" + messege
+	container.scroll_vertical += 200
+
 	pass
 
 

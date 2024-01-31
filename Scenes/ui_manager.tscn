@@ -2,17 +2,12 @@
 
 [ext_resource type="Script" path="res://Scripts/UI Manager.gd" id="1_l6dug"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5ch2"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-bg_color = Color(0, 0, 0.0666667, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbg1q"]
+bg_color = Color(0, 0, 0, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(1, 1, 1, 1)
-expand_margin_left = 8.0
-expand_margin_top = 5.0
 
 [node name="UI Manager" type="Node"]
 script = ExtResource("1_l6dug")
@@ -20,24 +15,30 @@ script = ExtResource("1_l6dug")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.25
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Panel" type="Panel" parent="."]
+offset_left = 515.0
+offset_top = 441.0
+offset_right = 1150.0
+offset_bottom = 646.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mbg1q")
+
+[node name="Container" type="ScrollContainer" parent="."]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 533.0
-offset_top = -108.0
+offset_left = 525.0
+offset_top = -199.0
+offset_right = -27.0
+offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
 
-[node name="Panel" type="Panel" parent="MarginContainer"]
+[node name="Battle Log" type="Label" parent="Container"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_e5ch2")
-
-[node name="Battle Log" type="Label" parent="MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
 text = "Battle Log"
-autowrap_mode = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
