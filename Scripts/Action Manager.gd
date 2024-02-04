@@ -14,7 +14,7 @@ func _ready():
 #List of all attacks
 
 func Strike():
-	print("1 This definatly worked")
+	print("Strike called")
 	if Enemy_Selected:
 		Enemy_Selected.HP -= 50
 		
@@ -22,7 +22,7 @@ func Strike():
 			Enemy_Selected = null
 
 func Knee_Punch():
-	print("2 This definatly worked")
+	print("Knee Punch called")
 	if Enemy_Selected:
 		if  Enemy_Selected.Spd > 1:
 			Enemy_Selected.Spd -= 10

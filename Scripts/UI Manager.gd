@@ -11,7 +11,8 @@ extends Node
 var messege: String
 
 func _ready():
-	battle_log.text
+	
+	battle_log.text= "Battle start"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

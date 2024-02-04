@@ -1,6 +1,7 @@
 extends Node
 
 #Stats
+@export var Name: String
 @export var HP: int = 100
 @export var Def: int = 100
 @export var Atk: int = 100
@@ -46,7 +47,7 @@ func _on_attack_1_pressed():
 	if Action_bar.is_stopped():
 		if ActionManager.Enemy_Selected:
 			ActionManager.call(Attack1_Name)
-			UiManager.Battle_Log_Update("Punched")
+			UiManager.Battle_Log_Update( Name + " " + "Punched")
 			Action_bar.start()
 		else:
 			UiManager.Battle_Log_Update("Pick An Enemy")

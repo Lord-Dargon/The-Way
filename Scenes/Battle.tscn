@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbwep0qj6sw6w"]
+[gd_scene load_steps=7 format=3 uid="uid://dbwep0qj6sw6w"]
 
+[ext_resource type="PackedScene" uid="uid://cbg63003vmp27" path="res://Scenes/ui_manager.tscn" id="1_bsmni"]
 [ext_resource type="Texture2D" uid="uid://c7vrifdgm18i2" path="res://Graphics/icon.svg" id="1_tlngn"]
-[ext_resource type="Script" path="res://Scripts/Test_Player.gd" id="2_ps8u1"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_ps8u1"]
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="3_3281n"]
 [ext_resource type="Texture2D" uid="uid://dneyb4bldc01u" path="res://Graphics/TW-Monk.png" id="4_ico45"]
 [ext_resource type="Texture2D" uid="uid://dblp4561llpuh" path="res://Graphics/myohmy.jpeg" id="5_wjh16"]
 
 [node name="Battle" type="Node2D"]
+
+[node name="UI Manager" parent="." instance=ExtResource("1_bsmni")]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(569, 318.5)
@@ -18,6 +21,7 @@ position = Vector2(118, 195)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_ico45")
 script = ExtResource("2_ps8u1")
+Name = "Jerry"
 Attack1_Name = "Strike"
 Attack2_Name = "Knee_Punch"
 metadata/_edit_group_ = true
@@ -90,7 +94,7 @@ self_modulate = Color(1, 0.0901961, 0.0901961, 1)
 texture = ExtResource("1_tlngn")
 script = ExtResource("3_3281n")
 Name = "Shmorgashnap Nettleborp"
-Spd = 50
+Spd = 58
 metadata/_edit_group_ = true
 
 [node name="TimerBar" type="ProgressBar" parent="Enemy_Slot_1/Enemy"]
@@ -143,7 +147,7 @@ self_modulate = Color(1, 0.0901961, 0.0901961, 1)
 texture = ExtResource("1_tlngn")
 script = ExtResource("3_3281n")
 Name = "Shmorgashnap Nettleborp"
-Spd = 50
+Spd = 25
 metadata/_edit_group_ = true
 
 [node name="TimerBar" type="ProgressBar" parent="Enemy_Slot_2/Enemy"]
@@ -197,7 +201,7 @@ self_modulate = Color(1, 0.0901961, 0.0901961, 1)
 texture = ExtResource("1_tlngn")
 script = ExtResource("3_3281n")
 Name = "Shmorgashnap Nettleborp"
-Spd = 50
+Spd = 70
 metadata/_edit_group_ = true
 
 [node name="TimerBar" type="ProgressBar" parent="Enemy_Slot_3/Enemy"]
@@ -251,7 +255,7 @@ self_modulate = Color(1, 0.0901961, 0.0901961, 1)
 texture = ExtResource("1_tlngn")
 script = ExtResource("3_3281n")
 Name = "Shmorgashnap Nettleborp"
-Spd = 50
+Spd = 35
 metadata/_edit_group_ = true
 
 [node name="TimerBar" type="ProgressBar" parent="Enemy_Slot_4/Enemy"]
